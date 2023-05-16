@@ -34,3 +34,12 @@
         msg: URL - {{ URL }}
 
 # vars_files does not support task level, it is only for play level
+
+- name: Variable from Roles
+  hosts: all
+  vars:
+    URL_PLAY: play.example.com
+  roles:
+    - sample
+
+# Variable from Roles
