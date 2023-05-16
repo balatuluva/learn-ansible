@@ -23,3 +23,14 @@
         URL: play.example.com
 
 # Only this task will have the variable, and other task can't access it
+
+- name: Load Variables from file
+  hosts: all
+  vars_files:
+    - exvars.yml
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: URL - {{ URL }}
+
+# vars_files does not support task level, it is only for play level
