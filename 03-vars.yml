@@ -43,3 +43,13 @@
     - sample
 
 # Variable from Roles
+
+- name: Demo on register variables
+  hosts: all
+  tasks:
+    - name: Run uptime shell command
+      ansible.builtin.shell: uptime
+      register: output
+    - name: Print Output
+      ansible.builtin.debug:
+        msg: '{{ output }}'
